@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+          function insert(num)
+        {
+            var number = document.getElementById('result').innerHTML;
+            document.getElementById('result').innerHTML = number + num;
+        }
+        function clean()
+        {
+            document.getElementById('result').innerHTML = "";
+        }
+        function back()
+        {
+            var result = document.getElementById('result').innerHTML;
+            document.getElementById('result').innerHTML = result.substring(0, result.length -1);
+        }
+        function calculate()
+        {
+            var result = document.getElementById('result').innerHTML;
+            if(result)
+            {
+                document.getElementById('result').innerHTML = eval(result);
+            }
+            else
+            {
+                document.getElementById('result').innerHTML = "Nada..."
+            }
+        }
+
+
+    </script>
+    <style>
+          *{
+            margin: 0;
+            padding: 0;
+        }
+        .background{
+            background-color: khaki;
+            height: 50vh;
+            color: aliceblue;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+        }
+        .calculator{
+            position: absolute;
+            background-color: lightgreen;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            border-radius: 5px;
+            padding: 50px;
+        }
+        .botton{
+            width: 50px;
+            height: 50px;
+            font-size: 25px;
+            cursor: pointer;
+            margin: 3px;
+            background-color: cornflowerblue(31,31,31);
+            border: none;
+            color: black;
+        }
+        .botton:hover{
+            background-color: burlywood;
+        }
+        #result{
+            background-color: cadetblue;
+            width: 212px;
+            height: 30px;
+            margin: 5px;
+            font-size: 25px;
+            color: black;
+            text-align: right;
+            padding: 5px;
+            overflow-wrap: break-word;
+            min-height: 1.6em;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="background">
+        <h2 style="color: darkred" >Calculadora Alexsandro Narducci</h2>
+        <div class="calculator">
+            <p id="result"></p>
+            <table>
+                <tr>
+                    <td><button class="botton" onclick="clean()">C</button></td>;
+                    <td><button class="botton" onclick="back()"> CE </button></td>;
+                    <td><button class="botton" onclick="insert('/')">/</button></td>;
+                    <td><button class="botton" onclick="insert('*')">*</button></td>;
+                </tr>
+                <tr>
+                    <td><button class="botton" onclick="insert('7')">7</button></td>;
+                    <td><button class="botton" onclick="insert('8')">8</button></td>;
+                    <td><button class="botton" onclick="insert('9')">9</button></td>;
+                    <td><button class="botton" onclick="insert('-')">-</button></td>;
+                </tr>
+                <tr>
+                    <td><button class="botton" onclick="insert('4')">4</button></td>;
+                    <td><button class="botton" onclick="insert('5')">5</button></td>;
+                    <td><button class="botton" onclick="insert('6')">6</button></td>;
+                    <td><button class="botton" onclick="insert('+')">+</button></td>;
+                </tr>
+                <tr>
+                    <td><button class="botton" onclick="insert('1')">1</button></td>;
+                    <td><button class="botton" onclick="insert('2')">2</button></td>;
+                    <td><button class="botton" onclick="insert('3')">3</button></td>;
+                    <td rowspan="2"><button class="botton" style="height: 106px;" onclick="calculate()">=</button></td>;
+                </tr>
+                <tr>
+                    <td colspan="2"><button class="botton" style="width: 106px;" onclick="insert('0')">0</button></td>;
+                    <td><button class="botton" onclick="insert('.')">.</button></td>;
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
